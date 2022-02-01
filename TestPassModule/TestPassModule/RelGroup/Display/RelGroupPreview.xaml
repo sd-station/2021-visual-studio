@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="TestPassModule.Stage.Items.RelGroupPreview"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:TestPassModule.Stage.Items"
+             mc:Ignorable="d"
+             HorizontalAlignment="Left"
+             VerticalAlignment="Top"
+             d:DesignHeight="450"
+             x:Name="El"
+             BorderBrush="#707070"
+             d:DesignWidth="200">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Ui/dic/dic-icon-btn.xaml" />
+    </UserControl.Resources>
+    <Grid>
+        <Line X2="20"
+              Margin="2"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              Stroke="{Binding ElementName=El, Path=BorderBrush}" />
+        <Line X2="20"
+              Margin="2"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Bottom"
+              Stroke="{Binding ElementName=El, Path=BorderBrush}" />
+        <Line X2="20"
+              Margin="2"
+              HorizontalAlignment="Right"
+              VerticalAlignment="Top"
+              Stroke="{Binding ElementName=El, Path=BorderBrush}" />
+        <Line X2="20"
+              Margin="2"
+              HorizontalAlignment="Right"
+              VerticalAlignment="Bottom"
+              Stroke="{Binding ElementName=El, Path=BorderBrush}" />
+
+        <Line Y2="20"
+              Margin="2"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              Stroke="{Binding ElementName=El, Path=BorderBrush}" />
+        <Line Y2="20"
+              Margin="2"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Bottom"
+              Stroke="{Binding ElementName=El, Path=BorderBrush}" />
+        <Line Y2="20"
+              Margin="2"
+              HorizontalAlignment="Right"
+              VerticalAlignment="Top"
+              Stroke="{Binding ElementName=El, Path=BorderBrush}" />
+        <Line Y2="20"
+              Margin="2"
+              HorizontalAlignment="Right"
+              VerticalAlignment="Bottom"
+              Stroke="{Binding ElementName=El, Path=BorderBrush}" />
+
+
+        <Button  ClipToBounds="True" Margin="2,1,0,0"
+                 Style="{StaticResource icon-btn}"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top" Click="BtnAction_Click">
+            <Button.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Show All" />
+                    <Separator />
+                    <MenuItem Header="Delete" Click="btnDelete_Click" />
+                </ContextMenu>
+            </Button.ContextMenu>
+            
+            <Grid>
+                
+        
+            <Border Background="#464646"
+                    Margin="-2,0,0,0"
+                    Width="30"
+                    Height="17"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    RenderTransformOrigin="0.5,0.5">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform AngleX="-10" />
+                        <RotateTransform />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Border.RenderTransform>
+            </Border>
+                <TextBlock Text="Opt" x:Name="txtTitle" ToolTip="Optional"
+                           Padding="2,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top" />
+            </Grid>
+        </Button>
+
+
+    </Grid>
+</UserControl>

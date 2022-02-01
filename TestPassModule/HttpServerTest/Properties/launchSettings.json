@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "HttpServerTest": {
+      "commandName": "Project"
+    }
+  }
+}

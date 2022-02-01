@@ -1,0 +1,288 @@
+//out:  ../css/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #212121;
+    color: #cffcfc;
+    margin: 0;
+}
+
+article {
+    margin: 10px;
+}
+
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    margin: 5px;
+    border-bottom: 1px currentColor dashed;
+    padding-right: 20px;
+    margin-top: 20px;
+
+}
+
+h1 {
+    margin-left: 0;
+
+}
+
+h2 {
+    margin-left: 20px;
+    width: 200px;
+}
+
+h3 {
+    margin-left: 40px;
+    width: 300px;
+}
+
+h4 {
+    margin-left: 2 * 40px;
+    width: 400px;
+}
+
+h5 {
+    margin-left: 3 * 40px;
+}
+
+h6 {
+    margin-left: 4 * 40px;
+}
+
+
+.detail-content-box{
+    display: flex; 
+    flex-direction: column   ;
+    h6 {
+        margin-left: 0;
+        border-bottom: none;
+        color: orange;
+        font-family: shabnam;
+    }
+
+    pre{
+        margin: 0 0 0 20px ;
+    }
+}
+
+canvas {
+    background-color: #000;
+    margin-left: 3 * 40px;
+}
+
+img {
+    background-color: #161616;
+    margin-left: 3 * 40px;
+    padding: 20px 0;
+    &.black-white{
+         display: none;
+       
+    }
+}
+
+
+module-list {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    margin-left: 15px;
+    gap: 2px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    module-item {
+        margin-left: 60px;
+        width: 200px;
+        padding: 2px 5px;
+        border-left: 1px solid silver;
+    }
+}
+
+
+h1 {
+    color: #3f51b5;
+    color: #ab47bc;
+}
+
+h2 {
+    color: #ff9800;
+}
+
+h3 {
+    color: #4caf50;
+}
+
+h4 {
+    color: #00bcd4;
+    color: #2196f3;
+    color: #03a9f4;
+}
+
+h5 {
+    color: #ffc107;
+}
+
+h6 {
+    color: #009688;
+    color: #e91e63;
+}
+
+@media print {
+    body {
+        background-color: #ffffff;
+        color: #000000;
+        margin: 0;
+    }
+
+    module-item {
+        color: #000000 !important;
+        width: unset !important;
+        border-left: 2px solid black !important;
+        padding-left: 15px !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: black !important;
+        width: unset !important;
+        margin-left: unset !important;
+    }
+
+    details {
+        margin-left: unset !important;
+        page-break-inside: avoid ;
+        
+    }
+
+    img.colorful{
+        display: none;
+    }
+
+    img.black-white {
+        background-color: #ffffff;
+        display: block;
+        max-width: 100%;
+        margin-left: unset;
+        border: 1px dashed silver;
+        margin: 20px auto;
+    }
+
+
+
+    a::after {
+        content: " ("attr(href) ")";
+    }
+
+    /* print.css */
+    // body::after {
+    //     content: "Provided By : TestPass Module";
+    //     display: block;
+    //     text-align: center;
+
+    // }
+
+}
+
+/* hidden on-screen */
+.print {
+    display: none;
+}
+
+@media print {
+
+    /* visible when printed */
+    .print {
+        margin-top: 10vh;
+        display: block;
+        text-align: center;
+        font-size: 2em;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .footer-print{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        font-size: 0.5em;
+        display: block;
+        text-align: center;
+
+    }
+
+    senario-package {
+        display: block;
+        page-break-before: always;
+
+        h4 {
+            page-break-before: always;
+        }
+    }
+
+    senario-drawer {
+        display: block;
+
+        break-inside: avoid;
+    }
+
+
+    h3 {
+        border: none;
+        font-size: 4em;
+        page-break-before: always;
+        page-break-after: always;
+        text-align: center;
+        height: 100vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 10vh;
+    }
+
+    h2 {
+        border: none;
+        font-size: 4em;
+        page-break-before: always;
+
+        text-align: center;
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 10vh;
+    }
+
+    h2+article h3:first-child {
+        page-break-before: avoid !important;
+        height: unset;
+        padding-top: unset;
+    }
+
+    h1 {
+        border: none;
+        font-size: 4em;
+        page-break-before: always;
+
+        text-align: center;
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 10vh;
+    }
+
+    h4 {
+        page-break-after: avoid !important;
+    }
+}

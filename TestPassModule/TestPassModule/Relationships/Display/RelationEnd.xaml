@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="TestPassModule.Relationships.Display.RelationEnd"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TestPassModule.Relationships.Display"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="200">
+    <Grid>
+        <Grid.ContextMenu>
+            <ContextMenu>
+                <MenuItem x:Name="EditMenu"
+                          Header="Edit"
+                          Click="EditMenu_Click" />
+    
+                <MenuItem Header="Delete"
+                          Click="btnDelete_Click" />
+            </ContextMenu>
+        </Grid.ContextMenu>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="133*" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+
+
+        <Rectangle Height="4"
+                   Margin="2"
+                   Fill="#707070" />
+        <Path Stretch="Uniform"
+              Data="M400,200L600,400 400,600 460,400Z"
+              Height="20"
+              Width="10"
+              Fill="#707070"
+              HorizontalAlignment="Right" />
+
+        <Ellipse Grid.Column="1"
+                 HorizontalAlignment="Center"
+                 Width="30"
+                 Height="30"
+                 VerticalAlignment="Center"
+                 Stroke="#707070"
+                 Opacity="0" />
+        <Button  Grid.Column="1" Background="Transparent" BorderThickness="0"
+                 HorizontalAlignment="Center" Click="BtnEndPoint_Click"
+                 VerticalAlignment="Center">
+            <Ellipse 
+                     Width="20"
+                     Height="20"
+                     Fill="Black"
+                   
+                     Stroke="#707070" />
+        </Button>
+    </Grid>
+</UserControl>

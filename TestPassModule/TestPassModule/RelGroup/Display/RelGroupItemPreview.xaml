@@ -1,0 +1,119 @@
+﻿<UserControl x:Class="TestPassModule.RelGroup.Display.RelGroupItemPreview"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:TestPassModule.RelGroup.Display"
+             mc:Ignorable="d"
+             FontSize="16"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+    <Border Padding="5,5,5,15"
+            Background="#350d47a1"
+            Margin="1">
+        <Border.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="Delete"
+                          Click="DeleteMenu_Click" />
+                <MenuItem Header="Delete But Keep Member Setting"
+                          Click="DeleteWithKeepMenu_Click" />
+                <MenuItem Header="Remove All Item"
+                          Click="RemoveAllMenu_Click" />
+            </ContextMenu>
+        </Border.ContextMenu>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="211*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="33*" />
+            </Grid.ColumnDefinitions>
+
+
+
+
+            <TextBox x:Name="txtTitle"
+                     Text="Title"
+                     Grid.Column="1"
+                     Padding="10,5"
+                     CaretBrush="Orange"
+                     BorderThickness="0,0,0,1"
+                     LostFocus="txtTitle_LostFocus"
+                     Background="Transparent"
+                     Foreground="#cfcfff" />
+
+            <StackPanel Grid.RowSpan="2">
+
+
+
+                <Path Stretch="Uniform"
+                      x:Name="IconDrawable"
+                      Fill="#707070"
+                      Width="32"
+                      Height="32"
+                      Margin="5"
+                      Data="M3 3L3 7L5 7L5 5L7 5L7 3L3 3 z M9 3L9 5L11 5L11 3L9 3 z M13 3L13 5L15 5L15 3L13 3 z M17 3L17 5L19 5L19 7L21 7L21 3L17 3 z M7 7L7 9L17 9L17 7L7 7 z M3 9L3 11L5 11L5 9L3 9 z M19 9L19 11L21 11L21 9L19 9 z M7 11L7 13L14 13L14 11L7 11 z M20.990234 12.884766L18.990234 12.894531L19 15.003906L21 14.996094L20.990234 12.884766 z M3 13L3 15L5 15L5 13L3 13 z M7 15L7 17L17 17L17 15L7 15 z M3 17L3 21L7 21L7 19L5 19L5 17L3 17 z M19 17L19 19L17 19L17 21L21 21L21 17L19 17 z M9 19L9 21L11 21L11 19L9 19 z M13 19L13 21L15 21L15 19L13 19 z" />
+
+
+                <Path Stretch="Uniform"
+                      x:Name="IconEmpty"
+                      Fill="#707070"
+                      Width="32"
+                      Height="32"
+                      Margin="5"
+                      Data="M5 3C3.9069372 3 3 3.9069372 3 5L3 7L5 7L5 5L7 5L7 3L5 3 z M9 3L9 5L11 5L11 3L9 3 z M13 3L13 5L15 5L15 3L13 3 z M17 3L17 5L19 5L19 7L21 7L21 5C21 3.9069372 20.093063 3 19 3L17 3 z M3 9L3 11L5 11L5 9L3 9 z M19 9L19 11L21 11L21 9L19 9 z M20.990234 12.884766L18.990234 12.894531L19 15.003906L21 14.996094L20.990234 12.884766 z M3 13L3 15L5 15L5 13L3 13 z M3 17L3 19C3 20.093063 3.9069372 21 5 21L7 21L7 19L5 19L5 17L3 17 z M19 17L19 19L17 19L17 21L19 21C20.093063 21 21 20.093063 21 19L21 17L19 17 z M9 19L9 21L11 21L11 19L9 19 z M13 19L13 21L15 21L15 19L13 19 z" />
+            </StackPanel>
+
+
+
+            <StackPanel Grid.Column="1"
+                        Grid.Row="1"
+                        Margin="10,0"
+                        Grid.RowSpan="2">
+
+
+
+
+
+                <TextBlock Foreground="#707070">
+                <Run Text="ID" />
+                <Run x:Name="txtID"
+                     Text="ID"
+                     Foreground="#cfcfff" />
+                </TextBlock>
+
+
+
+
+
+
+
+
+
+
+                <TextBlock Foreground="#707070">
+            <Run Text="Member In Stage" />
+            <Run x:Name="txtMemberInStage"
+                    Text="ID"
+                    Foreground="#cfcfff" />
+                </TextBlock>
+
+
+                <TextBlock Foreground="#707070">
+            <Run Text="Members" />
+            <Run x:Name="txtMembers"
+                    Text="ID"
+                    Foreground="#cfcfff" />
+                </TextBlock>
+
+                <StackPanel x:Name="MemberContainer" />
+
+            </StackPanel>
+
+        </Grid>
+
+    </Border>
+</UserControl>

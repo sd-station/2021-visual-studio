@@ -1,0 +1,159 @@
+﻿<UserControl x:Class="TestPassModule.Stage.Items.RelationOnScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:TestPassModule.Stage.Items"
+             mc:Ignorable="d"
+             VerticalAlignment="Top"
+             d:DesignHeight="40"
+             d:DesignWidth="800">
+    <UserControl.Resources>
+
+
+        <Style TargetType="Button">
+            <Setter Property="Cursor"
+                    Value="Hand" />
+            <Setter Property="Background"
+                    Value="Transparent" />
+            <Setter Property="Foreground"
+                    Value="Silver" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <ControlTemplate.Resources>
+                            <Style TargetType="Path">
+                                <Setter Property="Fill"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button},Path=Foreground}" />
+                                <Setter Property="Stretch"
+                                        Value="Uniform" />
+                                <Setter Property="VerticalAlignment"
+                                        Value="Center" />
+
+                            </Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Foreground"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button},Path=Foreground}" />
+                                <Setter Property="Padding"
+                                        Value="10,5" />
+                                <Setter Property="VerticalAlignment"
+                                        Value="Center" />
+
+                            </Style>
+                        </ControlTemplate.Resources>
+                        <Border Background="{TemplateBinding Background}"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="true">
+                    <Setter Property="Background"
+                            Value="#22ffffff" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+    </UserControl.Resources>
+    <Grid>
+
+        <Line  Stroke="Silver"
+               HorizontalAlignment="Stretch"
+               X2="{Binding ActualWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}}"
+               StrokeDashArray="2 2"
+               VerticalAlignment="Center"
+               StrokeThickness="1" />
+
+
+
+        <Rectangle Height="4"
+                   Visibility="Collapsed"
+                   x:Name="ArrowBox"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Fill="#707070" />
+
+        <Path Stretch="Uniform"
+              Visibility="Hidden"
+              x:Name="AngleArrow" Height="40"  
+              Fill="{Binding ElementName=ArrowBox ,Path=Fill}"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Center"
+              Data="M100,100L260,300 100,500 140,300Z" />
+
+        <Border  x:Name="ThemeColor"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
+                 Margin="{Binding ElementName=ArrowBox ,Path=Margin}">
+            <WrapPanel x:Name="ColorBox" 
+                        Orientation="Horizontal"
+                        Margin="10,0,0,-150" Height="100">
+                <Button Width="26"
+                        Height="26"
+                        Background="#707070" />
+                <Button Width="26"
+                        Height="26"
+                        Background="Red" />
+            </WrapPanel>
+        </Border>
+
+
+        <StackPanel Orientation="Horizontal"
+                    x:Name="BeginMarker"
+                    VerticalAlignment="Center">
+            <Path Stretch="Uniform"
+                  Fill="LightGreen"
+            
+                  HorizontalAlignment="Left"
+                  Width="20"
+                  VerticalAlignment="Center"
+                  Height="20"
+                  Data="M9 3L9 11L6 11L6 8L2 12L6 16L6 13L9 13L9 21L11 21L11 3L9 3 z M13 3L13 21L15 21L15 13L18 13L18 16L22 12L18 8L18 11L15 11L15 3L13 3 z" />
+
+            <Button Content="Remove"
+                    Click="RemoveButton_Click"
+                    Background="#212121"
+                    Foreground="Red"
+                    BorderThickness="0"
+                    Margin="10,0"
+                    Padding="10,2" />
+        </StackPanel>
+
+
+        <StackPanel Orientation="Horizontal"
+                    x:Name="TargetMarker"
+                    Margin="200,0,0,0"
+                    VerticalAlignment="Center">
+            <Path Stretch="Uniform"
+                  Fill="Orange"
+                  HorizontalAlignment="Left"
+                  Width="20"
+                  VerticalAlignment="Center"
+                  Height="20"
+                  Data="M11 1L11 3.0605469C7.5030401 3.4421868 4.6372344 5.7951406 3.515625 9L5.6699219 9C6.7829219 6.626 9.179 5 12 5C14.821 5 17.217078 6.626 18.330078 9L20.484375 9C19.362766 5.7951406 16.49696 3.4421868 13 3.0605469L13 1L11 1 z M7 9L7 11L1 11L1 13L7 13L7 15L10 12L7 9 z M17 9L14 12L17 15L17 13L23 13L23 11L17 11L17 9 z M12 11 A 1 1 0 0 0 11 12 A 1 1 0 0 0 12 13 A 1 1 0 0 0 13 12 A 1 1 0 0 0 12 11 z M3.515625 15C4.6372344 18.204859 7.5036604 20.557813 11 20.939453L11 23L13 23L13 20.939453C16.49634 20.557813 19.362766 18.204859 20.484375 15L18.330078 15C17.217078 17.374 14.821 19 12 19C9.179 19 6.7829219 17.374 5.6699219 15L3.515625 15 z" />
+            <Button Content="Remove"
+                    Click="TargetRemoveButton_Click"
+                    Background="#212121"
+                    Foreground="Red"
+                    BorderThickness="0"
+                    Margin="10,0"
+                    Padding="10,2" />
+            <Button Content="Swap"
+                    Click="SwapButton_Click"
+                    Background="#212121"
+                    Foreground="white"
+                    BorderThickness="0"
+                    Margin="10,0"
+                    Padding="10,2" />
+        </StackPanel>
+
+
+
+
+
+    </Grid>
+</UserControl>

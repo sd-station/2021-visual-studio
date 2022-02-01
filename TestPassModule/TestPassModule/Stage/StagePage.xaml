@@ -1,0 +1,122 @@
+﻿<Page x:Class="TestPassModule.Stage.StagePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:TestPassModule.Stage"
+      mc:Ignorable="d"
+      d:DesignHeight="300"
+      d:DesignWidth="600"
+      Title="StagePage">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+
+                <MenuItem Header="Reload"
+                          Click="mnuReload_Click" />
+
+                <MenuItem Header="Save"
+                          Click="mnuSave_Click" />
+                <MenuItem Header="Open App Directory"
+                          Click="mnuOpenDir_Click" />
+                <MenuItem Header="Open Senario Directory"
+                          Click="SenarioDirMenu_Click" />
+            </MenuItem>
+            <MenuItem Header="Modules">
+                <MenuItem Header="Insert"
+                          x:Name="GlobalModules" />
+                <MenuItem Header="Create New"
+                          x:Name="NewModules">
+                    <!--<MenuItem Header="Module"
+                              Uid="module"
+                              Click="mnuAddModule_Click" />
+                    <MenuItem Header="Role Player (Actor)"
+                              Uid="role-player"
+                              Click="mnuAddModule_Click" />
+
+                    <MenuItem Header="View (boundary)"
+                              Uid="ui"
+                              Click="mnuAddModule_Click" />
+                    
+                    <MenuItem Header="Model (entity)"
+                              Uid="entity"
+                              Click="mnuAddModule_Click" />
+                    
+                    <MenuItem Header="Controller"
+                              Uid="control"
+                              Click="mnuAddModule_Click" />-->
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="Relationship">
+                <MenuItem Header="Refresh"
+                          Click="Rel_Refresh_Menu_Click" />
+                <MenuItem Header="Show All"
+                          Click="ShowAllMenu_Click" />
+            </MenuItem>
+
+            <MenuItem Header="Export">
+                <MenuItem Header="This Senario"
+                          Click="ExportSenario_Click" />
+                <MenuItem Header="All Solutions"
+                          Click="ExportAllMenu_Click" />
+            </MenuItem>
+        </Menu>
+
+        <Grid>
+
+
+
+           
+                <Rectangle Fill="Black" />
+                <ScrollViewer HorizontalScrollBarVisibility="Visible"
+                              VerticalScrollBarVisibility="Disabled">
+                    <Grid Margin="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition  Height="auto" />
+                            <RowDefinition Height="6*" />
+                        </Grid.RowDefinitions>
+                        <Grid x:Name="ModulePreview" />
+
+                        <ScrollViewer x:Name="x1"
+                                      Grid.Row="1"
+                                      VerticalScrollBarVisibility="Hidden">
+                            <StackPanel>
+
+                                <Grid Height="2000"
+                                      x:Name="MainGrid">
+
+
+                                    <Grid x:Name="RelGroupCanvas" />
+                                    <Grid x:Name="BehindCanvas" />
+                                    <Grid x:Name="TempCanvas" />
+                                    <Grid x:Name="GridCanvas" />
+                                    <Grid x:Name="RelationshipCanvas" />
+                                </Grid>
+                            </StackPanel>
+
+                        </ScrollViewer>
+
+
+                    </Grid>
+
+                </ScrollViewer>
+                <ScrollBar x:Name="SideScroll"
+                           Grid.RowSpan="2"
+                           Background="Transparent"
+                           Scroll="SideScroll_Scroll"
+                           Orientation="Vertical"
+                           BorderBrush="Transparent"
+                           ViewportSize="500"
+                           Maximum="{Binding ElementName=x1 , Path=ScrollableHeight}"
+                           HorizontalAlignment="Right"
+                           Margin="0,0,0,20" />
+           
+
+            <Grid x:Name="OnScreen" />
+
+        </Grid>
+
+    </DockPanel>
+
+</Page>

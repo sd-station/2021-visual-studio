@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="TestPassModule.Departments.Edit.DepartmentEditorOnScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:TestPassModule.Departments.Edit"
+             mc:Ignorable="d"
+             Background="#212121"
+             Foreground="#cfcfcf"
+             FontSize="17"
+             d:DesignHeight="450"
+             d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/Ui/dic/dic-properties-editor.xaml" />
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="9*" />
+        </Grid.RowDefinitions>
+
+        <Border BorderThickness="0,0,0,1"
+                BorderBrush="#707070"
+                Background="#33691e" />
+
+        <TextBlock Text="Edit Relation Ship"
+                   Padding="10,0"
+                   VerticalAlignment="Center" />
+
+
+        <Button HorizontalAlignment="Right"
+                Style="{StaticResource action-button}"
+                VerticalAlignment="Center"
+                Height="28"
+                Width="28"
+                Margin="10,0"
+                Click="BtnSave_Click">
+            <Path Stretch="Uniform"
+                  Data="M17,3H3v18h18V7L17,3z M12,19c-1.66,0-3-1.34-3-3s1.34-3,3-3s3,1.34,3,3S13.66,19,12,19z M15,9H5V5h10V9z" />
+        </Button>
+        <ScrollViewer  Grid.Row="1">
+            <StackPanel>
+
+                <StackPanel  Margin="5,0,5,100"
+                             x:Name="EditContainer" />
+
+                <ComboBox x:Name="ModuleBox" />
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+
+</UserControl>

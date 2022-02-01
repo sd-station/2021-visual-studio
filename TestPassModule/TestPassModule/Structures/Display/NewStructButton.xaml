@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="TestPassModule.Structs.Display.NewStructButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:TestPassModule.Structs.Display"
+             mc:Ignorable="d"
+             d:DesignHeight="50"
+             d:DesignWidth="50">
+    <UserControl.Resources>
+
+
+        <Style TargetType="Button">
+            <Setter Property="Cursor"
+                    Value="Hand" />
+            <Setter Property="Background"
+                    Value="#33707070" />
+            <Setter Property="Foreground"
+                    Value="#a0707070" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <ControlTemplate.Resources>
+                            <Style TargetType="Path">
+                                <Setter Property="Fill"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button},Path=Foreground}" />
+                                <Setter Property="Stretch"
+                                        Value="Uniform" />
+                                <Setter Property="VerticalAlignment"
+                                        Value="Center" />
+
+                            </Style>
+                            <Style TargetType="Ellipse">
+                                <Setter Property="Fill"
+                                        Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button},Path=Background}" />
+                            </Style>
+                        </ControlTemplate.Resources>
+
+                        <ContentPresenter />
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="true">
+                    <Setter Property="Foreground"
+                            Value="#a000f000" />
+                    <Setter Property="Background"
+                            Value="#212121" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+    </UserControl.Resources>
+    <Button Width="40"
+            Height="40"
+            Click="btnAction_Click">
+        <Grid>
+            <Ellipse Margin="7" />
+            <Path Stretch="Uniform"
+                  Width="15"
+                  Data="M11 3L11 11L3 11L3 13L11 13L11 21L13 21L13 13L21 13L21 11L13 11L13 3L11 3 z" />
+        </Grid>
+
+    </Button>
+</UserControl>
